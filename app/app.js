@@ -49,28 +49,10 @@ $(function() {
     scrollPrev = scrolled;
   });
 
-    // select
+  // select
 
   $('.select').SumoSelect({
     forceCustomRendering: true
-  });
-
-  // languages
-
-  $('.header-lang__curr').click(function() {
-    $(this).closest('.header-lang').toggleClass('active');
-  });
-
-  $(document).click(function() {
-    $('.header-lang').removeClass('active');
-  });
-
-  $(document).on('click', '.header-lang__curr', function(e) {
-    e.stopPropagation();
-  });
-
-  $(document).on('click', '.header-lang__list', function(e) {
-    e.stopPropagation();
   });
 
   // mobile menu
@@ -105,7 +87,7 @@ $(function() {
     e.stopPropagation();
   });
 
-    // lazy load
+  // lazy load
   var lazyload = function() {
     var scroll = $(window).scrollTop() + $(window).height() * 3;
 
