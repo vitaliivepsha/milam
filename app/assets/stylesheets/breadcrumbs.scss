@@ -1,0 +1,37 @@
+.breadcrumbs {
+  & ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-top: 20px;
+    font-size: 10px;
+    line-height: 12px;
+    color: $blue;
+    & li {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      &::after {
+        content: "/";
+        display: block;
+        margin-right: 4px;
+      }
+      &:last-child {
+        &::after {
+          display: none;
+        }
+      }
+    }
+    & a {
+      font-size: 10px;
+      line-height: 12px;
+      color: $blue;
+      text-decoration: none;
+      padding-right: 4px;
+      word-wrap: break-word;
+      &:hover {
+        color: $accent;
+      }
+    }
+  }
+}
