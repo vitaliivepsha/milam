@@ -1,0 +1,133 @@
+.categories-top{
+  padding-bottom: 35px;
+  .section-title{
+    margin-bottom: 22px;
+  }
+}
+
+.categories-top__wrapper{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.categories-top__item{
+  width: 110px;
+  margin-bottom: 15px;
+  text-decoration: none;
+  &:hover, &:focus{
+    text-decoration: none;
+  }
+  &:hover, &.current{
+    .categories-top__title{
+      color: $accent;
+    }
+    .categories-top__pic{
+      &:before{
+        opacity: 1;
+        border-width: 3px;
+      }
+    }
+  }
+}
+
+.categories-top__pic{
+  width: 87px;
+  height: 87px;
+  background: #F7F7F7;
+  border-radius: 50%;
+  padding: 8px;
+  position: relative;
+  margin: 0 auto 8px;
+  &:before{
+    position: absolute;
+    content: '';
+    opacity: 0;
+    transition: linear .2s;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 10px solid $accent;
+    left: 0;
+    top: 0;
+  }
+  picture{
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.categories-top__title{
+  display: block;
+  text-align: center;
+  color: $blue;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 12px;
+  text-transform: uppercase;
+  transition: linear .2s;
+}
+
+.categories-main{
+  background: #F7F7F7;
+  width: 100%;
+  float: left;
+}
+
+.categories-main__wrapper{
+  float: left;
+  width: 100%;
+  position: relative;
+  &.opened-filters{
+    .categories-filters{
+      width: 25%;
+      padding: 0 15px;
+    }
+    .categories-items{
+      width: 75%;
+      .col{
+        width: 33.333333%;
+      }
+    }
+  }
+}
+
+.categories-filters{
+  float: left;
+  width: 0;
+  position: relative;
+  top: 0;
+  left: 0;
+  transition: width .3s ease-in-out;
+  overflow: hidden;
+  min-height: 400px;
+  background-color: #fff;
+}
+
+.categories-items{
+  float: left;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+  width: 100%;
+  .col{
+    width: 25%;
+    transition: .3s ease-in-out;
+    margin-bottom: 10px;
+    float: left;
+    padding: 0 15px;
+    min-height: 400px;
+    div{
+      background-color: #fff;
+      height: 100%;
+    }
+  }
+}

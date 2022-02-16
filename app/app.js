@@ -6,6 +6,7 @@ if (process.env.NODE_ENV !== 'production') {
   require('./assets/templates/layouts/index.html');
   require('./assets/templates/layouts/product.html');
   require('./assets/templates/layouts/catalog.html');
+  require('./assets/templates/layouts/categories.html');
 }
 
 // Depends
@@ -87,6 +88,11 @@ $(function() {
   $(document).on('click', '.mobile-menu__wrapper', function(e) {
     e.stopPropagation();
   });
+
+  // filters
+    $('.categories-filters__btn').on('click', function() {
+      $('.categories-main__wrapper').toggleClass('opened-filters');
+    });
 
   // lazy load
   var lazyload = function() {
