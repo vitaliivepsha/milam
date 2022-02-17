@@ -7,6 +7,7 @@ if (process.env.NODE_ENV !== 'production') {
   require('./assets/templates/layouts/product.html');
   require('./assets/templates/layouts/catalog.html');
   require('./assets/templates/layouts/categories.html');
+  require('./assets/templates/layouts/categories-chosen.html');
 }
 
 // Depends
@@ -90,9 +91,50 @@ $(function() {
   });
 
   // filters
-    $('.categories-filters__btn').on('click', function() {
-      $('.categories-main__wrapper').toggleClass('opened-filters');
-    });
+
+  $('.btn-filters').on('click', function() {
+    var btn_txt = $(this).find('span');
+    btn_txt.html() == 'Скрыть фильтры' ? btn_txt.html('Отобразить фильтры') : btn_txt.html('Скрыть фильтры');
+    $('.categories-main').toggleClass('opened-filters');
+  });
+
+  $(window).resize(function() {
+    var btn_txt = $('.btn-filters').find('span');
+    if ($(window).width() < 991) {
+      btn_txt.html('Отобразить фильтры');
+      $('.categories-main').removeClass('opened-filters');
+    }
+  });
+
+  $('.btn-filters__mob').on('click', function() {
+    $('body').toggleClass('filters-opened');
+  });
+
+  $('.mobile-filters__close').click(function() {
+    $('body').removeClass('filters-opened');
+  });
+
+  $(document).click(function() {
+    $('body').removeClass('filters-opened');
+  });
+
+  $(document).on('click', '.mobile-filters__wrapper', function(e) {
+    e.stopPropagation();
+  });
+
+  $(document).on('click', '.btn-filters__mob', function(e) {
+    e.stopPropagation();
+  });
+
+  $('.categories-filter__head').on('click', function() {
+    $(this).toggleClass('active').next().slideToggle();
+  });
+
+  $(window).resize(function() {
+    if ($(window).width() > 991) {
+      $('body').removeClass('filters-opened');
+    }
+  });
 
   // lazy load
   var lazyload = function() {
