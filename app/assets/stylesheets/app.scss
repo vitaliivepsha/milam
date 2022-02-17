@@ -31,12 +31,12 @@ body {
   }
   &.filters-opened {
     overflow: hidden;
-    .overlay{
+    .overlay {
       z-index: 1000;
       opacity: 1;
       visibility: visible;
     }
-    .mobile-filters__wrapper{
+    .mobile-filters__wrapper {
       right: 0;
       box-shadow: 0 0 20px rgba(56, 56, 56, 0.2);
     }
@@ -195,7 +195,7 @@ textarea:-webkit-autofill:hover {
   color: red;
 }
 
-.overlay{
+.overlay {
   background: rgba(0, 49, 116, 0.5);
   backdrop-filter: blur(10px);
   position: fixed;
@@ -208,7 +208,7 @@ textarea:-webkit-autofill:hover {
   z-index: -1;
   opacity: 0;
   visibility: hidden;
-  transition: linear .2s;
+  transition: linear 0.2s;
 }
 
 ::selection {
@@ -239,5 +239,6 @@ textarea:-webkit-autofill:hover {
 
 // Pages
 @import "product";
+@import "contacts";
 @import "catalog";
 @import "categories";

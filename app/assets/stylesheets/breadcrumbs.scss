@@ -7,6 +7,9 @@
     font-size: 10px;
     line-height: 12px;
     color: $blue;
+    @media (max-width: 574px) {
+      padding-top: 8px;
+    }
     & li {
       display: flex;
       flex-wrap: wrap;
