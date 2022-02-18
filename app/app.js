@@ -10,6 +10,7 @@ if (process.env.NODE_ENV !== 'production') {
     require('./assets/templates/layouts/categories.html');
     require('./assets/templates/layouts/categories-chosen.html');
     require('./assets/templates/layouts/404.html');
+    require('./assets/templates/layouts/about.html');
 }
 
 // Depends
