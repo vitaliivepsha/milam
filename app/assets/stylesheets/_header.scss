@@ -186,20 +186,22 @@
     }
   }
   >.optWrapper{
-    box-shadow: none;
-    border-radius: 2px;
-    border-color: rgba(0, 49, 116, 0.1);
+    border-radius: 0;
+    border: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     >.options{
+      padding: 5px 0;
+      max-height: 228px;
       &::-webkit-scrollbar {
         overflow-y: scroll;
         background: transparent;
-        width: 4px;
+        width: 5px;
         transition: linear 0.2s;
       }
       &::-webkit-scrollbar-thumb {
         background: $accent;
         border-radius: 0;
-        width: 4px;
+        width: 5px;
         transition: linear 0.2s;
         cursor: grab;
       }
@@ -207,8 +209,13 @@
         &.opt{
           font-size: 14px;
           line-height: 17px;
-          padding: 6px 12px;
+          padding: 5px 20px;
           border: none;
+          color: $text;
+          &:hover{
+            color: $accent;
+            background-color: transparent;
+          }
           label{
             margin-bottom: 0;
             font-weight: 400;
@@ -583,12 +590,22 @@
       }
     }
     >.optWrapper{
+      border-radius: 2px;
+      border: 1px solid rgba(0, 49, 116, 0.1);
+      box-shadow: none;
       &.isFloating{
         position: absolute;
         top: auto;
         bottom: 100%;
         width: 100%;
         max-height: 300px;
+        >.options{
+          li{
+            &.opt{
+              padding: 5px 20px;
+            }
+          }
+        }
       }
     }
   }
