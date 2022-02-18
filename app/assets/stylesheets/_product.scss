@@ -215,6 +215,12 @@
     margin-right: 5px;
     margin-bottom: 5px;
     overflow: hidden;
+    &:hover a span {
+      color: $accent;
+      &:before {
+        display: none;
+      }
+    }
 
     & > div {
       display: flex;
@@ -288,9 +294,6 @@
         line-height: 19px;
         color: $blue;
         text-align: center;
-        &:hover {
-          color: $accent;
-        }
         @media (max-width: 767px) {
           font-size: 14px;
           line-height: 17px;
@@ -322,6 +325,7 @@
     text-decoration-line: underline;
     color: $blue;
     &:hover {
+      text-decoration-line: none;
       color: $accent;
     }
   }
