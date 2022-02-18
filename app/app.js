@@ -9,6 +9,7 @@ if (process.env.NODE_ENV !== 'production') {
   require('./assets/templates/layouts/catalog.html');
   require('./assets/templates/layouts/categories.html');
   require('./assets/templates/layouts/categories-chosen.html');
+  require('./assets/templates/layouts/partners.html');
 }
 
 // Depends
@@ -142,6 +143,54 @@ $(function() {
     if ($(window).width() > 991) {
       $('body').removeClass('filters-opened');
     }
+  });
+
+  // tabs
+
+  $('.tabs').on('click', 'li:not(.active)', function() {
+    $(this)
+          .addClass('active').siblings().removeClass('active')
+          .closest('.tabs-wrapper').find('.tabs-content').removeClass('active').eq($(this).index()).addClass('active');
+  });
+
+  // map
+
+  $('.city').mousedown(function(e) {
+    e.stopPropagation();
+    var map = $('.map-wrapper'),
+      dot = $(this).find('circle'),
+      left = dot.offset().left - map.offset().left,
+      top = dot.offset().top - map.offset().top;
+    console.log(left, top);
+    $(this).addClass('active').siblings().removeClass('active')
+            .closest('.map-wrapper').find('.title').removeClass('active').eq($(this).index()).addClass('active')
+            .closest('.distributors-wrapper').find('.distributors-info').removeClass('active').eq($(this).index()).addClass('active');
+    setTimeout(function() {
+      $('.map-wrapper .title.active').each(function() {
+        var title_pos = $(this).width() + 28;
+        console.log(title_pos);
+        $(this).css({'left': left + 3 - title_pos / 2, 'top': top - 25});
+      });
+    }, 100);
+  });
+
+  /*$(document).mousedown(function() {
+    $('.city').removeClass('active');
+    $('.title').removeClass('active');
+  });
+
+  $(document).on('mousedown', '.city', function(e) {
+    e.stopPropagation();
+  });
+
+  $(document).on('mousedown', '.title', function(e) {
+    e.stopPropagation();
+  });*/
+
+  $('.map-cities__list').on('click', 'li', function(e) {
+    var city_name = $(this).html();
+    $(this).addClass('active').siblings().removeClass('active');
+    $(this).closest('.map-cities__wrapper').find('.map-cities__title').html(city_name);
   });
 
     // lazy load
