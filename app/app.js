@@ -3,13 +3,13 @@
 'use strict';
 
 if (process.env.NODE_ENV !== 'production') {
-  require('./assets/templates/layouts/index.html');
-  require('./assets/templates/layouts/product.html');
-  require('./assets/templates/layouts/contacts.html');
-  require('./assets/templates/layouts/catalog.html');
-  require('./assets/templates/layouts/categories.html');
-  require('./assets/templates/layouts/categories-chosen.html');
-  require('./assets/templates/layouts/partners.html');
+    require('./assets/templates/layouts/index.html');
+    require('./assets/templates/layouts/product.html');
+    require('./assets/templates/layouts/contacts.html');
+    require('./assets/templates/layouts/catalog.html');
+    require('./assets/templates/layouts/categories.html');
+    require('./assets/templates/layouts/categories-chosen.html');
+    require('./assets/templates/layouts/partners.html');
     require('./assets/templates/layouts/index.html');
     require('./assets/templates/layouts/product.html');
     require('./assets/templates/layouts/contacts.html');
@@ -30,6 +30,7 @@ var Popup = require('_modules/popup');
 var LightGallery = require('_modules/lightgallery');
 var Slider = require('_modules/slider');
 require('../node_modules/sumoselect/jquery.sumoselect.min');
+require('../node_modules/ez-plus/src/jquery.ez-plus');
 
 // Stylesheet entrypoint
 require('_stylesheets/app.scss');
@@ -153,53 +154,53 @@ $(function () {
         }
     });
 
-  // tabs
+    // tabs
 
-  $('.tabs').on('click', 'li:not(.active)', function() {
-    $(this)
-          .addClass('active').siblings().removeClass('active')
-          .closest('.tabs-wrapper').find('.tabs-content').removeClass('active').eq($(this).index()).addClass('active');
-  });
+    $('.tabs').on('click', 'li:not(.active)', function () {
+        $(this)
+            .addClass('active').siblings().removeClass('active')
+            .closest('.tabs-wrapper').find('.tabs-content').removeClass('active').eq($(this).index()).addClass('active');
+    });
 
-  // map
+    // map
 
-  $('.city').mousedown(function(e) {
-    e.stopPropagation();
-    var map = $('.map-wrapper'),
-      dot = $(this).find('circle'),
-      left = dot.offset().left - map.offset().left,
-      top = dot.offset().top - map.offset().top;
-    console.log(left, top);
-    $(this).addClass('active').siblings().removeClass('active')
+    $('.city').mousedown(function (e) {
+        e.stopPropagation();
+        var map = $('.map-wrapper'),
+            dot = $(this).find('circle'),
+            left = dot.offset().left - map.offset().left,
+            top = dot.offset().top - map.offset().top;
+        console.log(left, top);
+        $(this).addClass('active').siblings().removeClass('active')
             .closest('.map-wrapper').find('.title').removeClass('active').eq($(this).index()).addClass('active')
             .closest('.distributors-wrapper').find('.distributors-info').removeClass('active').eq($(this).index()).addClass('active');
-    setTimeout(function() {
-      $('.map-wrapper .title.active').each(function() {
-        var title_pos = $(this).width() + 28;
-        console.log(title_pos);
-        $(this).css({'left': left + 3 - title_pos / 2, 'top': top - 25});
-      });
-    }, 100);
-  });
+        setTimeout(function () {
+            $('.map-wrapper .title.active').each(function () {
+                var title_pos = $(this).width() + 28;
+                console.log(title_pos);
+                $(this).css({ 'left': left + 3 - title_pos / 2, 'top': top - 25 });
+            });
+        }, 100);
+    });
 
-  /*$(document).mousedown(function() {
-    $('.city').removeClass('active');
-    $('.title').removeClass('active');
-  });
+    /*$(document).mousedown(function() {
+      $('.city').removeClass('active');
+      $('.title').removeClass('active');
+    });
+  
+    $(document).on('mousedown', '.city', function(e) {
+      e.stopPropagation();
+    });
+  
+    $(document).on('mousedown', '.title', function(e) {
+      e.stopPropagation();
+    });*/
 
-  $(document).on('mousedown', '.city', function(e) {
-    e.stopPropagation();
-  });
-
-  $(document).on('mousedown', '.title', function(e) {
-    e.stopPropagation();
-  });*/
-
-  $('.map-cities__list').on('click', 'li', function(e) {
-    var city_name = $(this).html();
-    $(this).addClass('active').siblings().removeClass('active');
-    $(this).closest('.map-cities__wrapper').find('.map-cities__title').html(city_name);
-  });
+    $('.map-cities__list').on('click', 'li', function (e) {
+        var city_name = $(this).html();
+        $(this).addClass('active').siblings().removeClass('active');
+        $(this).closest('.map-cities__wrapper').find('.map-cities__title').html(city_name);
+    });
 
     // lazy load
     var lazyload = function () {
@@ -219,4 +220,35 @@ $(function () {
         });
     };
     $(window).scroll(lazyload);
+
+    // zoom product
+
+
+
+    $(window).resize(function () {
+        if ($(window).width() > 991) {
+            $('.zoom-pic').ezPlus({
+                borderSize: 0,
+                easing: false,
+                zoomWindowFadeIn: 300,
+                zoomWindowFadeOut: 300,
+                lensFadeIn: 300,
+                lensFadeOut: 300,
+                zoomWindowHeight: 500,
+                zoomWindowWidth: 680
+            });
+        }
+        else {
+            $('.zoom-pic').ezPlus({
+                zoomType: 'inner',
+                cursor: 'crosshair',
+                borderSize: 0,
+                zoomWindowHeight: 600,
+                zoomWindowFadeIn: 300,
+                zoomWindowFadeOut: 300,
+                lensFadeIn: 300,
+                lensFadeOut: 300,
+            });
+        }
+    });
 });
