@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Милам</title>
+  <link rel="icon" href="../../images/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../images/favicon.png" type="image/png">
+  <meta name="theme-color" content="#8850F4">
+  <meta name="msapplication-navbutton-color" content="#003174">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#003174">
+</head>
+
+<body>
+  ${require('../parts/header.html')}
+  <main class="main">
+    <div class="not-found">
+      <div class="breadcrumbs">
+        <div class="container">
+          <ul>
+            <li><a href="javascript:void(0)">Главная</a></li>
+            <li><span>Страница не найдена</span></li>
+          </ul>
+        </div>
+      </div>
+      <span class="not-found-title">404</span>
+      <p class="not-found-text">Простите, но у нас возникли проблемы с поиском страницы, которую Вы запрашиваете.</p>
+      <p class="not-found-text">Вы можете связаться с нашими менеджерами в форме внизу страницы либо:</p>
+      <a class="not-found-link" href="javascript:void(0)">Перейти на главную</a>
+      <picture>
+        <source media="(max-width: 574px)" srcset="../../images/pixel.webp"
+          data-original="../../images/not-found-bg-mob.webp" class="lazy-web" type="image/webp">
+        <source media="(max-width: 574px)" srcset="../../images/pixel.jpg"
+          data-original="../../images/not-found-bg-mob.jpg" class="lazy-web" type="image/jpg">
+
+        <source srcset="../../images/pixel.webp" data-original="../../images/not-found-bg.webp" class="lazy-web"
+          type="image/webp">
+        <source srcset="../../images/pixel.jpg" data-original="../../images/not-found-bg.jpg" class="lazy-web"
+          type="image/jpg">
+        <img src="../../images/pixel.jpg" data-original="../../images/not-found-bg.jpg" class="lazy" alt="">
+      </picture>
+    </div>
+    ${require('../parts/consult.html')}
+  </main>
+  ${require('../parts/footer.html')}
+
+</body>
+
+</html>
