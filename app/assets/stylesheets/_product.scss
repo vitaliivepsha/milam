@@ -29,6 +29,7 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 10000;
     width: 56px;
     height: 56px;
     font-size: 0;
@@ -44,7 +45,6 @@
       background-color: $accent;
     }
     &.slick-prev {
-      z-index: 1;
       left: 0;
       -webkit-mask: url("../images/icons/arrow-left.svg");
       mask: url("../images/icons/arrow-left.svg");
