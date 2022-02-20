@@ -222,9 +222,6 @@ $(function () {
     $(window).scroll(lazyload);
 
     // zoom product
-
-
-
     $(window).resize(function () {
         if ($(window).width() > 991) {
             $('.zoom-pic').ezPlus({
