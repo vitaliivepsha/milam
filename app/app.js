@@ -52,8 +52,8 @@ $(function() {
   var header = $('.header'),
     scrollPrev = 0;
 
-  $(window).scroll(function() {
-    var scrolled = $(window).scrollTop();
+    $(window).scroll(function () {
+        var scrolled = $(window).scrollTop();
 
     if (scrolled > 200 && scrolled > scrollPrev) {
       header.addClass('fixed');
@@ -229,7 +229,6 @@ $(function() {
   $(window).scroll(lazyload);
 
     // zoom product
-
 
   $(window).resize(function() {
     if ($(window).width() > 991) {
