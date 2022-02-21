@@ -24,7 +24,7 @@ body {
   &.menu-opened {
     overflow: hidden;
     .mobile-menu__wrapper {
-      z-index: 100;
+      z-index: 10001;
       visibility: visible;
       opacity: 1;
     }
@@ -32,7 +32,7 @@ body {
   &.filters-opened {
     overflow: hidden;
     .overlay {
-      z-index: 1000;
+      z-index: 10002;
       opacity: 1;
       visibility: visible;
     }
