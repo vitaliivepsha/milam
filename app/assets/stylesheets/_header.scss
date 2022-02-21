@@ -639,6 +639,19 @@
   height: calc(100% - 96px);
   overflow: auto;
   padding: 25px 15px;
+  &::-webkit-scrollbar {
+    overflow-y: scroll;
+    background: transparent;
+    width: 3px;
+    transition: linear 0.2s;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $light;
+    border-radius: 0;
+    width: 3px;
+    transition: linear 0.2s;
+    cursor: grab;
+  }
 }
 
 .mobile-menu {
@@ -648,14 +661,16 @@
   > li {
     margin-bottom: 20px;
     display: flex;
+    flex-wrap: wrap;
     &:last-child {
       margin-bottom: 0;
     }
     > a {
       color: $blue;
       text-decoration: none;
-      &:hover {
-        color: $accent;
+      &:hover, &:focus, &.current{
+        color: $light;
+        text-decoration: none;
       }
     }
     > span {
@@ -668,6 +683,30 @@
         justify-content: center;
         height: 19px;
         padding: 0 16px;
+      }
+      &.opened{
+        i{
+          transform: scale(1, -1);
+        }
+      }
+    }
+    >ul{
+      width: 100%;
+      display: none;
+      font-size: 14px;
+      line-height: 17px;
+      padding-top: 20px;
+      padding-left: 22px;
+      li{
+        margin-bottom: 15px;
+        a{
+          color: $blue;
+          text-decoration: none;
+          &:hover, &:focus, &.current{
+            color: $light;
+            text-decoration: none;
+          }
+        }
       }
     }
   }

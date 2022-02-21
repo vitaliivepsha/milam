@@ -52,8 +52,8 @@ $(function() {
   var header = $('.header'),
     scrollPrev = 0;
 
-    $(window).scroll(function () {
-        var scrolled = $(window).scrollTop();
+  $(window).scroll(function() {
+    var scrolled = $(window).scrollTop();
 
     if (scrolled > 200 && scrolled > scrollPrev) {
       header.addClass('fixed');
@@ -106,6 +106,10 @@ $(function() {
       $('.mobile-menu__btn').removeClass('active');
       $('body').removeClass('menu-opened');
     }
+  });
+
+  $('.mobile-menu .has-children > span').on('click', function() {
+    $(this).toggleClass('opened').closest('li').find('.submenu').slideToggle();
   });
 
     // filters
@@ -178,19 +182,6 @@ $(function() {
       $(this).css({ 'left': left + 3 - title_pos / 2, 'top': top - 25 });
     });
   });
-
-    /*$(document).mousedown(function() {
-      $('.city').removeClass('active');
-      $('.title').removeClass('active');
-    });
-
-    $(document).on('mousedown', '.city', function(e) {
-      e.stopPropagation();
-    });
-
-    $(document).on('mousedown', '.title', function(e) {
-      e.stopPropagation();
-    });*/
 
   $('.map-cities__list').on('click', 'li', function(e) {
     var city_name = $(this).html();
