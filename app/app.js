@@ -2,6 +2,8 @@
 
 'use strict';
 
+import Swal from 'sweetalert2';
+
 if (process.env.NODE_ENV !== 'production') {
   require('./assets/templates/layouts/index.html');
   require('./assets/templates/layouts/product.html');
@@ -31,6 +33,7 @@ var LightGallery = require('_modules/lightgallery');
 var Slider = require('_modules/slider');
 require('../node_modules/sumoselect/jquery.sumoselect.min');
 require('../node_modules/ez-plus/src/jquery.ez-plus');
+require('../node_modules/sweetalert2/dist/sweetalert2');
 
 // Stylesheet entrypoint
 require('_stylesheets/app.scss');

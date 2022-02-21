@@ -130,7 +130,7 @@
     flex-wrap: wrap;
     margin-bottom: 18px;
     @include bp(xs){
-      margin-bottom: 22px;
+      margin-bottom: 17px;
     }
     >span{
       margin-right: 20px;
@@ -142,15 +142,19 @@
         margin-right: 0;
       }
       @include bp(xs){
-        margin-bottom: 10px;
+        margin-bottom: 5px;
       }
     }
     .radio{
       margin-right: 12px;
       margin-top: 0;
       margin-bottom: 0;
+      @include bp(xs){
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
       &:last-child{
-        margin: 0;
+        margin-right: 0;
       }
       input{
         display: none;
