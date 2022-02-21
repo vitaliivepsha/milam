@@ -2,8 +2,6 @@
 
 'use strict';
 
-import Swal from 'sweetalert2';
-
 if (process.env.NODE_ENV !== 'production') {
   require('./assets/templates/layouts/index.html');
   require('./assets/templates/layouts/product.html');
