@@ -216,7 +216,7 @@
     margin-bottom: 5px;
     overflow: hidden;
     &:hover a span {
-      color: $accent;
+      color: $light;
       &:before {
         display: none;
       }
@@ -306,7 +306,7 @@
           height: 1px;
           background-color: $blue;
           &:hover {
-            background-color: $accent;
+            background-color: $light;
           }
         }
       }
@@ -326,7 +326,11 @@
     color: $blue;
     &:hover {
       text-decoration-line: none;
-      color: $accent;
+      color: $light;
     }
   }
+}
+
+.zoomLens{
+  cursor: zoom-in;
 }

@@ -145,6 +145,11 @@ main {
 .input-wrapper {
   position: relative;
   width: 100%;
+  &.err{
+    .input{
+      border-color: #FEA362;
+    }
+  }
 }
 
 .input {
@@ -156,6 +161,9 @@ main {
   font-size: 12px;
   line-height: 15px;
   background-color: transparent;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0;
   @include bp(xs) {
     padding: 7px 0;
   }
@@ -192,7 +200,7 @@ textarea:-webkit-autofill:hover {
   left: 0;
   bottom: -20px;
   font-size: 10px;
-  color: red;
+  color: #FEA362;
 }
 
 .overlay {
